@@ -27,23 +27,27 @@ class App extends React.Component {
                 },
         
             ]
-
     }
+    // Функция addUser может взаимодействовать с состояниями
+    this.addUser = this.addUser.bind(this)
 }
-  render() {
-    return (<div>
-      <Header title="Список пользователей"/>
-      <main>
-        <Users users={this.state.users} />
-      </main>
-      <aside>
-        <AddUser onAdd={this.addUser} />
-      </aside>
-    </div>)
-  }
-  addUser(user){
-    console.log(user)
-  }
+    render() {
+        return (<div>
+            <Header title="Список пользователей"/>
+            <main>
+                <Users users={this.state.users} />
+            </main>
+            <aside>
+                <AddUser onAdd={this.addUser} />
+            </aside>
+        </div>)
+    }
+    addUser(user){
+        const id = this.state.users.length + 1
+        this.setState({users: [...this.state.users, {id, ...user}]})
+    }
+
+
 }
 
 

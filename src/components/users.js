@@ -7,7 +7,7 @@ class Users extends React.Component {
         if(this.props.users.length > 0)
             return (
             <div>
-                {this.state.users.map((el) => (
+                {this.props.users.map((el) => (
                     <User key={el.id} user={el} />
                 ))}
             </div>
